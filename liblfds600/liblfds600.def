@@ -1,0 +1,46 @@
+EXPORTS
+
+lfds600_freelist_delete = lfds600_freelist_delete @1
+lfds600_freelist_get_user_data_from_element = lfds600_freelist_get_user_data_from_element @2
+lfds600_freelist_guaranteed_pop = lfds600_freelist_guaranteed_pop @3
+lfds600_freelist_new = lfds600_freelist_new @4
+lfds600_freelist_new_elements = lfds600_freelist_new_elements @5
+lfds600_freelist_pop = lfds600_freelist_pop @6
+lfds600_freelist_push = lfds600_freelist_push @7
+lfds600_freelist_query = lfds600_freelist_query @8
+lfds600_freelist_set_user_data_in_element = lfds600_freelist_set_user_data_in_element @9
+
+lfds600_queue_delete = lfds600_queue_delete @10
+lfds600_queue_dequeue = lfds600_queue_dequeue @11
+lfds600_queue_enqueue = lfds600_queue_enqueue @12
+lfds600_queue_guaranteed_enqueue = lfds600_queue_guaranteed_enqueue @13
+lfds600_queue_new = lfds600_queue_new @14
+lfds600_queue_query = lfds600_queue_query @15
+
+lfds600_ringbuffer_delete = lfds600_ringbuffer_delete @16
+lfds600_ringbuffer_get_read_element = lfds600_ringbuffer_get_read_element @17
+lfds600_ringbuffer_get_write_element = lfds600_ringbuffer_get_write_element @18
+lfds600_ringbuffer_new = lfds600_ringbuffer_new @19
+lfds600_ringbuffer_put_read_element = lfds600_ringbuffer_put_read_element @20
+lfds600_ringbuffer_put_write_element = lfds600_ringbuffer_put_write_element @21
+
+lfds600_slist_delete = lfds600_slist_delete @ 22
+lfds600_slist_delete_all_elements = lfds600_slist_delete_all_elements @ 23
+lfds600_slist_delete_element = lfds600_slist_delete_element @ 24
+lfds600_slist_get_head = lfds600_slist_get_head @ 25
+lfds600_slist_get_head_and_then_next = lfds600_slist_get_head_and_then_next @ 26
+lfds600_slist_get_next = lfds600_slist_get_next @ 27
+lfds600_slist_get_user_data_from_element = lfds600_slist_get_user_data_from_element @ 28
+lfds600_slist_new = lfds600_slist_new @ 29
+lfds600_slist_new_head = lfds600_slist_new_head @ 30
+lfds600_slist_new_next = lfds600_slist_new_next @ 31
+lfds600_slist_set_user_data_in_element = lfds600_slist_set_user_data_in_element @ 32
+
+lfds600_stack_clear = lfds600_stack_clear @33
+lfds600_stack_delete = lfds600_stack_delete @34
+lfds600_stack_guaranteed_push = lfds600_stack_guaranteed_push @35
+lfds600_stack_new = lfds600_stack_new @36
+lfds600_stack_pop = lfds600_stack_pop @37
+lfds600_stack_push = lfds600_stack_push @38
+lfds600_stack_query = lfds600_stack_query @39
+
