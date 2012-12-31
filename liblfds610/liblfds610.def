@@ -1,0 +1,57 @@
+EXPORTS
+
+lfds610_liblfds_abstraction_test_helper_increment_non_atomic = lfds610_liblfds_abstraction_test_helper_increment_non_atomic @1
+lfds610_liblfds_abstraction_test_helper_increment_atomic = lfds610_liblfds_abstraction_test_helper_increment_atomic @2
+lfds610_liblfds_abstraction_test_helper_cas = lfds610_liblfds_abstraction_test_helper_cas @3
+lfds610_liblfds_abstraction_test_helper_dcas = lfds610_liblfds_abstraction_test_helper_dcas @4
+
+lfds610_freelist_delete = lfds610_freelist_delete @5
+lfds610_freelist_get_user_data_from_element = lfds610_freelist_get_user_data_from_element @6
+lfds610_freelist_guaranteed_pop = lfds610_freelist_guaranteed_pop @7
+lfds610_freelist_new = lfds610_freelist_new @8
+lfds610_freelist_new_elements = lfds610_freelist_new_elements @9
+lfds610_freelist_pop = lfds610_freelist_pop @10
+lfds610_freelist_push = lfds610_freelist_push @11
+lfds610_freelist_query = lfds610_freelist_query @12
+lfds610_freelist_set_user_data_in_element = lfds610_freelist_set_user_data_in_element @13
+lfds610_freelist_use = lfds610_freelist_use @14
+
+lfds610_queue_delete = lfds610_queue_delete @15
+lfds610_queue_dequeue = lfds610_queue_dequeue @16
+lfds610_queue_enqueue = lfds610_queue_enqueue @17
+lfds610_queue_guaranteed_enqueue = lfds610_queue_guaranteed_enqueue @18
+lfds610_queue_new = lfds610_queue_new @19
+lfds610_queue_query = lfds610_queue_query @20
+lfds610_queue_use = lfds610_queue_use @21
+
+lfds610_ringbuffer_delete = lfds610_ringbuffer_delete @22
+lfds610_ringbuffer_get_read_element = lfds610_ringbuffer_get_read_element @23
+lfds610_ringbuffer_get_write_element = lfds610_ringbuffer_get_write_element @24
+lfds610_ringbuffer_new = lfds610_ringbuffer_new @25
+lfds610_ringbuffer_put_read_element = lfds610_ringbuffer_put_read_element @26
+lfds610_ringbuffer_put_write_element = lfds610_ringbuffer_put_write_element @27
+lfds610_ringbuffer_query = lfds610_ringbuffer_query @28
+lfds610_ringbuffer_use = lfds610_ringbuffer_use @29
+
+lfds610_slist_delete = lfds610_slist_delete @30
+lfds610_slist_get_head = lfds610_slist_get_head @31
+lfds610_slist_get_head_and_then_next = lfds610_slist_get_head_and_then_next @32
+lfds610_slist_get_next = lfds610_slist_get_next @33
+lfds610_slist_get_user_data_from_element = lfds610_slist_get_user_data_from_element @34
+lfds610_slist_logically_delete_element = lfds610_slist_logically_delete_element @35
+lfds610_slist_new = lfds610_slist_new @36
+lfds610_slist_new_head = lfds610_slist_new_head @37
+lfds610_slist_new_next = lfds610_slist_new_next @38
+lfds610_slist_set_user_data_in_element = lfds610_slist_set_user_data_in_element @39
+lfds610_slist_single_threaded_physically_delete_all_elements = lfds610_slist_single_threaded_physically_delete_all_elements @40
+lfds610_slist_use = lfds610_slist_use @41
+
+lfds610_stack_clear = lfds610_stack_clear @42
+lfds610_stack_delete = lfds610_stack_delete @43
+lfds610_stack_guaranteed_push = lfds610_stack_guaranteed_push @44
+lfds610_stack_new = lfds610_stack_new @45
+lfds610_stack_pop = lfds610_stack_pop @46
+lfds610_stack_push = lfds610_stack_push @47
+lfds610_stack_query = lfds610_stack_query @48
+lfds610_stack_use = lfds610_stack_use @49
+

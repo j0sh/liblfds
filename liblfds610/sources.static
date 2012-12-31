@@ -1,0 +1,35 @@
+MSC_WARNING_LEVEL = /WX /W4
+TARGETNAME        = liblfds610
+TARGETPATH        = ../../bin/
+TARGETTYPE        = DRIVER_LIBRARY
+UMTYPE            = nt
+USER_C_FLAGS      = /DWIN_KERNEL_BUILD
+
+INCLUDES = ..;../../inc/
+SOURCES  = lfds610_abstraction_free.c \
+           lfds610_abstraction_malloc.c \
+           lfds610_freelist_delete.c \
+           lfds610_freelist_get_and_set.c \
+           lfds610_freelist_new.c \
+           lfds610_freelist_pop_push.c \
+           lfds610_freelist_query.c \
+           lfds610_liblfds_abstraction_test_helpers.c \
+           lfds610_liblfds_aligned_free.c \
+           lfds610_liblfds_aligned_malloc.c \
+           lfds610_queue_delete.c \
+           lfds610_queue_new.c \
+           lfds610_queue_query.c \
+           lfds610_queue_queue.c \
+           lfds610_ringbuffer_delete.c \
+           lfds610_ringbuffer_get_and_put.c \
+           lfds610_ringbuffer_new.c \
+           lfds610_ringbuffer_query.c \
+           lfds610_slist_delete.c \
+           lfds610_slist_get_and_set.c \
+           lfds610_slist_link.c \
+           lfds610_slist_new.c \
+           lfds610_stack_delete.c \
+           lfds610_stack_new.c \
+           lfds610_stack_push_pop.c \
+           lfds610_stack_query.c
+

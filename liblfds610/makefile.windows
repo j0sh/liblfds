@@ -1,0 +1,97 @@
+##### paths #####
+BINDIR  = bin
+INCDIR  = inc
+OBJDIR  = obj
+SRCDIR  = src
+
+##### misc #####
+QUIETLY = 1>nul 2>nul
+
+##### sources, objects and libraries #####
+BINNAME = liblfds610
+LIB_BINARY = $(BINDIR)\$(BINNAME).lib
+DLL_BINARY = $(BINDIR)\$(BINNAME).dll
+SRCDIRS = lfds610_abstraction lfds610_freelist lfds610_liblfds lfds610_queue lfds610_ringbuffer lfds610_slist lfds610_stack
+# TRD : lfds610_abstraction_cas.c lfds610_abstraction_dcas.c lfds610_abstraction_increment.c are inlined and are compiled by every C file
+SOURCES = lfds610_abstraction_free.c lfds610_abstraction_malloc.c \
+          lfds610_freelist_delete.c lfds610_freelist_get_and_set.c lfds610_freelist_new.c lfds610_freelist_query.c lfds610_freelist_pop_push.c \
+          lfds610_liblfds_abstraction_test_helpers.c lfds610_liblfds_aligned_free.c lfds610_liblfds_aligned_malloc.c \
+          lfds610_queue_delete.c lfds610_queue_new.c lfds610_queue_query.c lfds610_queue_queue.c \
+          lfds610_ringbuffer_delete.c lfds610_ringbuffer_get_and_put.c lfds610_ringbuffer_new.c lfds610_ringbuffer_query.c \
+          lfds610_slist_delete.c lfds610_slist_get_and_set.c lfds610_slist_link.c lfds610_slist_new.c \
+          lfds610_stack_delete.c lfds610_stack_new.c lfds610_stack_push_pop.c lfds610_stack_query.c
+OBJECTS = $(patsubst %.c,$(OBJDIR)/%.obj,$(notdir $(SOURCES)))
+SYSLIBS = kernel32.lib
+
+##### tools #####
+MAKE    = make
+MFLAGS  = 
+
+CC      = cl
+CBASE   = /nologo /W4 /WX /c "-I$(SRCDIR)" "-I$(INCDIR)" "/Fd$(BINDIR)\$(BINNAME).pdb" /DUNICODE /D_UNICODE /DWIN32_LEAN_AND_MEAN
+CFREL   = /Ox /DNDEBUG
+CFDBG   = /Od /Gm /Zi /D_DEBUG
+
+AR      = lib
+AFLAGS  = /nologo /subsystem:console /wx /verbose
+
+LD      = link
+LFBASE  = /dll /def:$(BINNAME).def /nologo /subsystem:console /wx /nodefaultlib /nxcompat
+LFREL   = /incremental:no
+LFDBG   = /debug "/pdb:$(BINDIR)\$(BINNAME).pdb"
+
+##### variants #####
+CFLAGS  = $(CBASE) $(CFDBG) /MTd
+LFLAGS  = $(LFBASE) $(LFDBG)
+CLIB    = libcmtd.lib
+
+ifeq ($(MAKECMDGOALS),librel)
+  CFLAGS  = $(CBASE) $(CFREL) /MT
+  LFLAGS  = $(LFBASE) $(LFREL)
+  CLIB    = libcmt.lib
+endif
+
+ifeq ($(MAKECMDGOALS),libdbg)
+  CFLAGS  = $(CBASE) $(CFDBG) /MTd
+  LFLAGS  = $(LFBASE) $(LFDBG)
+  CLIB    = libcmtd.lib
+endif
+
+ifeq ($(MAKECMDGOALS),dllrel)
+  CFLAGS  = $(CBASE) $(CFREL) /MD
+  LFLAGS  = $(LFBASE) $(LFREL)
+  CLIB    = msvcrt.lib
+endif
+
+ifeq ($(MAKECMDGOALS),dlldbg)
+  CFLAGS  = $(CBASE) $(CFDBG) /MDd
+  LFLAGS  = $(LFBASE) $(LFDBG)
+  CLIB    = msvcrtd.lib
+endif
+
+##### search paths #####
+vpath %.c $(patsubst %,$(SRCDIR)/%;,$(SRCDIRS))
+
+##### implicit rules #####
+$(OBJDIR)/%.obj : %.c
+	$(CC) $(CFLAGS) "/Fo$@" $<
+
+##### explicit rules #####
+$(LIB_BINARY) : $(OBJECTS)
+	$(AR) $(AFLAGS) $(OBJECTS) /out:$(LIB_BINARY)
+
+$(DLL_BINARY) : $(OBJECTS)
+	$(LD) $(LFLAGS) $(CLIB) $(SYSLIBS) $(OBJECTS) /out:$(DLL_BINARY)
+
+##### phony #####
+.PHONY : clean librel libdbg dllrel dlldbg
+
+clean : 
+	@erase /Q $(BINDIR)\$(BINNAME).* $(OBJDIR)\*.obj $(QUIETLY)
+
+librel : $(LIB_BINARY)
+libdbg : $(LIB_BINARY)
+
+dllrel : $(DLL_BINARY)
+dlldbg : $(DLL_BINARY)
+
