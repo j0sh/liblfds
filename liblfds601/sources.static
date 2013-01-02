@@ -1,0 +1,35 @@
+MSC_WARNING_LEVEL = /WX /W4
+TARGETNAME        = liblfds601
+TARGETPATH        = ../../bin/
+TARGETTYPE        = DRIVER_LIBRARY
+UMTYPE            = nt
+USER_C_FLAGS      = /DWIN_KERNEL_BUILD
+
+INCLUDES = ..;../../inc/
+SOURCES  = lfds601_abstraction_aligned_free.c \
+           lfds601_abstraction_aligned_malloc.c \
+           lfds601_abstraction_cas.c \
+           lfds601_abstraction_dcas.c \
+           lfds601_abstraction_increment.c \
+           lfds601_freelist_delete.c \
+           lfds601_freelist_get_and_set.c \
+           lfds601_freelist_new.c \
+           lfds601_freelist_pop_push.c \
+           lfds601_freelist_query.c \
+           lfds601_queue_delete.c \
+           lfds601_queue_new.c \
+           lfds601_queue_query.c \
+           lfds601_queue_queue.c \
+           lfds601_ringbuffer_delete.c \
+           lfds601_ringbuffer_get_and_put.c \
+           lfds601_ringbuffer_new.c \
+           lfds601_ringbuffer_query.c \
+           lfds601_slist_delete.c \
+           lfds601_slist_get_and_set.c \
+           lfds601_slist_link.c \
+           lfds601_slist_new.c \
+           lfds601_stack_delete.c \
+           lfds601_stack_new.c \
+           lfds601_stack_push_pop.c \
+           lfds601_stack_query.c
+
